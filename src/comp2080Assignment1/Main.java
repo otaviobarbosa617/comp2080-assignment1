@@ -41,9 +41,8 @@ public class Main {
 
         System.arraycopy(arrayOfSize, 0, tempLeft, 0, mid);
 
-        for (int i = mid; i < arrayOfSize.length; i++){
-            tempRight[i - mid] = arrayOfSize[i];
-        }
+        if (arrayOfSize.length - mid >= 0)
+            System.arraycopy(arrayOfSize, mid, tempRight, 0, arrayOfSize.length - mid);
 
         MergeSortDesc(tempLeft);
         MergeSortDesc(tempRight);
@@ -68,6 +67,41 @@ public class Main {
         while (j < tempRight.length){
             temporaryArray[k++] = tempRight[j++];
         }
+    }
+
+    public static int partition(int[] array, int low, int high){
+        int pivot = array[high];
+        int i = low -1;
+        for (int j = low; j < high; j++){
+            if (array[j] >= pivot){
+                i++;
+                int temporary = array[i];
+                array[i] = array[j];
+                array[j] = temporary;
+            }
+        }
+        int temporary = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temporary;
+        return i+1;
+    }
+
+    public static void QuickSortDesc(int[] arrayOfSize, int low, int high){
+        if (low < high){
+            int pi = partition(arrayOfSize, low, high);
+            QuickSortDesc(arrayOfSize, low, pi -1);
+            QuickSortDesc(arrayOfSize, pi+1, high);
+
+        }
+    }
+
+    public static float Average(ArrayList<Long> time){
+        long sum = 0;
+        for (long timeTaken: time){
+            sum += timeTaken;
+        }
+        float average = (sum / time.size());
+        return average;
     }
 
 
@@ -152,38 +186,44 @@ public class Main {
             dataOneMillion4[i] = coreData[i];
         }
 
-
-
-        System.out.println("Core data:");
-        for (int i = 0; i < 50; i++){
-            System.out.println(i+1 + " - " + coreData[i]);
-        }
+        // Core Data 50
+        ArrayList<Long> time50 = new ArrayList<Long>();
         System.out.println("");
-        System.out.println("Copy 50 data:");
-        for (int i = 0; i < 50; i++){
-            System.out.println(i+1 + " - " + data50n1[i]);
-        }
-
+        System.out.println("Core Data Set - 50:");
+        // Selection Sort
+        long start = System.nanoTime();
         selectionSortDesc(data50n1);
-        System.out.println("");
-        System.out.println("Selection sort - 50 data:");
-        for (int i = 0; i < 50; i++){
-            System.out.println(i+1 + " - " + data50n1[i]);
-        }
+        long end = System.nanoTime();
+        long timeTaken = end - start;
+        System.out.println("Selection Sort = " + timeTaken + " " + "nanoseconds");
+        time50.add(timeTaken);
 
+        // Insertion Sort
+        long start2 = System.nanoTime();
         InsertionSortDesc(data50n2);
-        System.out.println("");
-        System.out.println("Insertion sort - 50 data:");
-        for (int i = 0; i < 50; i++){
-            System.out.println(i+1 + " - " + data50n2[i]);
-        }
+        long end2 = System.nanoTime();
+        long timeTaken2 = end2 - start2;
+        System.out.println("Insertion Sort = " + timeTaken2 + " " + "nanoseconds");
+        time50.add(timeTaken2);
 
+        // Merge Sort
+        long start3 = System.nanoTime();
         MergeSortDesc(data50n3);
-        System.out.println("");
-        System.out.println("Merge sort - 50 data:");
-        for (int i = 0; i < 50; i++){
-            System.out.println(i+1 + " - " + data50n3[i]);
-        }
+        long end3 = System.nanoTime();
+        long timeTaken3 = end3 - start3;
+        System.out.println("Merge Sort = " + timeTaken3 + " " + "nanoseconds");
+        time50.add(timeTaken3);
+
+        // Quick Sort
+        long start4 = System.nanoTime();
+        QuickSortDesc(data50n4, 0, data50n4.length - 1);
+        long end4 = System.nanoTime();
+        long timeTaken4 = end4 - start4;
+        System.out.println("Quick Sort = " + timeTaken4 + " " + "nanoseconds");
+        time50.add(timeTaken4);
+        System.out.println("The Core Data 50 average is" + " " + Average(time50) + " nanoseconds");
+
+
 
 
 
