@@ -95,140 +95,51 @@ public class Main {
         }
     }
 
-    public static float Average(ArrayList<Long> time){
-        long sum = 0;
-        for (long timeTaken: time){
-            sum += timeTaken;
-        }
-        float average = (sum / time.size());
-        return average;
-    }
-
-
 
     public static void main(String[] args) {
-        // Random Generator and CoreData
-        int sizeOfArray = 1000000;
-        Random randomGenerator = new Random();
+        int[] coreData = CoreData.FillArray();
 
-        int[] coreData = new int[sizeOfArray];
-        for (int i = 0; i < sizeOfArray; i++){
-            coreData[i] = randomGenerator.nextInt(2000001);
-        }
-
-        // 4 copies of 50 size
-
-        int[] data50n1 = new int[50];
-        int[] data50n2 = new int[50];
-        int[] data50n3 = new int[50];
-        int[] data50n4 = new int[50];
-
-        for (int i = 0; i < 50; i++){
-            data50n1[i] = coreData[i];
-            data50n2[i] = coreData[i];
-            data50n3[i] = coreData[i];
-            data50n4[i] = coreData[i];
-        }
-
-        // 4 copies of 1000 size
-
-        int[] dataThousand1 = new int[1000];
-        int[] dataThousand2 = new int[1000];
-        int[] dataThousand3 = new int[1000];
-        int[] dataThousand4 = new int[1000];
-
-        for (int i = 0; i < 1000; i++){
-            dataThousand1[i] = coreData[i];
-            dataThousand2[i] = coreData[i];
-            dataThousand3[i] = coreData[i];
-            dataThousand4[i] = coreData[i];
-        }
-
-        // 4 copies of 10000 size
-
-        int[] dataTenThousand1 = new int[10000];
-        int[] dataTenThousand2 = new int[10000];
-        int[] dataTenThousand3 = new int[10000];
-        int[] dataTenThousand4 = new int[10000];
-
-        for (int i = 0; i < 10000; i++){
-            dataTenThousand1[i] = coreData[i];
-            dataTenThousand2[i] = coreData[i];
-            dataTenThousand3[i] = coreData[i];
-            dataTenThousand4[i] = coreData[i];
-        }
-
-        // 4 copies of 100000 size
-
-        int[] dataOneHundredThou1 = new int[100000];
-        int[] dataOneHundredThou2 = new int[100000];
-        int[] dataOneHundredThou3 = new int[100000];
-        int[] dataOneHundredThou4 = new int[100000];
-
-        for (int i = 0; i < 100000; i++){
-            dataOneHundredThou1[i] = coreData[i];
-            dataOneHundredThou2[i] = coreData[i];
-            dataOneHundredThou3[i] = coreData[i];
-            dataOneHundredThou4[i] = coreData[i];
-        }
-
-        // 4 copies of 1000000 size
-
-        int[] dataOneMillion1 = new int[1000000];
-        int[] dataOneMillion2 = new int[1000000];
-        int[] dataOneMillion3 = new int[1000000];
-        int[] dataOneMillion4 = new int[1000000];
-
-        for (int i = 0; i < 1000000; i++){
-            dataOneMillion1[i] = coreData[i];
-            dataOneMillion2[i] = coreData[i];
-            dataOneMillion3[i] = coreData[i];
-            dataOneMillion4[i] = coreData[i];
-        }
-
-        // Core Data 50
-        ArrayList<Long> time50 = new ArrayList<Long>();
-        System.out.println("");
-        System.out.println("Core Data Set - 50:");
         // Selection Sort
-        long start = System.nanoTime();
-        selectionSortDesc(data50n1);
-        long end = System.nanoTime();
-        long timeTaken = end - start;
-        System.out.println("Selection Sort = " + timeTaken + " " + "nanoseconds");
-        time50.add(timeTaken);
+        CoreData.SelectionCore(coreData, 50);
+        CoreData.SelectionCore(coreData, 1000);
+        CoreData.SelectionCore(coreData, 10000);
+        CoreData.SelectionCore(coreData, 100000);
+        CoreData.SelectionCore(coreData, 1000000);
 
         // Insertion Sort
-        long start2 = System.nanoTime();
-        InsertionSortDesc(data50n2);
-        long end2 = System.nanoTime();
-        long timeTaken2 = end2 - start2;
-        System.out.println("Insertion Sort = " + timeTaken2 + " " + "nanoseconds");
-        time50.add(timeTaken2);
+        CoreData.InsertionCore(coreData, 50);
+        CoreData.InsertionCore(coreData, 1000);
+        CoreData.InsertionCore(coreData, 10000);
+        CoreData.InsertionCore(coreData, 100000);
+        CoreData.InsertionCore(coreData, 1000000);
 
         // Merge Sort
-        long start3 = System.nanoTime();
-        MergeSortDesc(data50n3);
-        long end3 = System.nanoTime();
-        long timeTaken3 = end3 - start3;
-        System.out.println("Merge Sort = " + timeTaken3 + " " + "nanoseconds");
-        time50.add(timeTaken3);
+        CoreData.MergeCore(coreData, 50);
+        CoreData.MergeCore(coreData, 1000);
+        CoreData.MergeCore(coreData, 10000);
+        CoreData.MergeCore(coreData, 100000);
+        CoreData.MergeCore(coreData, 1000000);
 
         // Quick Sort
-        long start4 = System.nanoTime();
-        QuickSortDesc(data50n4, 0, data50n4.length - 1);
-        long end4 = System.nanoTime();
-        long timeTaken4 = end4 - start4;
-        System.out.println("Quick Sort = " + timeTaken4 + " " + "nanoseconds");
-        time50.add(timeTaken4);
-        System.out.println("The Core Data 50 average is" + " " + Average(time50) + " nanoseconds");
+        CoreData.QuickCore(coreData, 50);
+        CoreData.QuickCore(coreData, 1000);
+        CoreData.QuickCore(coreData, 10000);
+        CoreData.QuickCore(coreData, 100000);
+        CoreData.QuickCore(coreData,1000000);
 
+        // Binary Search
+        selectionSortDesc(coreData);
+        CoreData.BinarySearchCore(coreData, 50,2500000);
+        CoreData.BinarySearchCore(coreData, 1000,2500000);
+        CoreData.BinarySearchCore(coreData, 10000,2500000);
+        CoreData.BinarySearchCore(coreData, 100000,2500000);
+        CoreData.BinarySearchCore(coreData, 1000000,2500000);
 
-
-
-
-
-
+        CoreData.LinearSearchCore(coreData, 50,2500000);
+        CoreData.LinearSearchCore(coreData, 1000,2500000);
+        CoreData.LinearSearchCore(coreData, 10000,2500000);
+        CoreData.LinearSearchCore(coreData, 100000,2500000);
+        CoreData.LinearSearchCore(coreData, 1000000,2500000);
 
     }
 }
