@@ -1,8 +1,13 @@
+// COMP 2152 - Assignment 1
+// Otavio Pereira-Barbosa - 101337690
+
 package comp2080Assignment1;
 
 import java.util.*;
 
 public class Main {
+    // COMP 2152 - Assignment 1
+    // Otavio Pereira-Barbosa - 101337690
 
     public static void selectionSortDesc(int[] arrayOfSize){
         for (int i = 0; i < arrayOfSize.length; i++){

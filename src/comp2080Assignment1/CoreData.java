@@ -1,3 +1,6 @@
+// COMP 2152 - Assignment 1
+// Otavio Pereira-Barbosa - 101337690
+
 package comp2080Assignment1;
 
 import java.util.*;
@@ -281,7 +284,7 @@ public class CoreData extends Main {
             System.out.println("Number to find: " + numberToFind + "has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result);
         }
         long end = System.nanoTime();
         long timeTaken = end - start;
@@ -292,10 +295,10 @@ public class CoreData extends Main {
         long start2 = System.nanoTime();
         int result2 = BinarySearch(coreDataCopy2, numberToFind);
         if(result2 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result2);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result2);
         }
         long end2 = System.nanoTime();
         long timeTaken2 = end2 - start2;
@@ -306,10 +309,10 @@ public class CoreData extends Main {
         long start3 = System.nanoTime();
         int result3 = BinarySearch(coreDataCopy3, numberToFind);
         if(result3 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result3);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result3);
         }
         long end3 = System.nanoTime();
         long timeTaken3 = end3 - start3;
@@ -320,10 +323,10 @@ public class CoreData extends Main {
         long start4 = System.nanoTime();
         int result4 = BinarySearch(coreDataCopy4, numberToFind);
         if(result4 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result4);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result4);
         }
         long end4 = System.nanoTime();
         long timeTaken4 = end4 - start4;
@@ -334,10 +337,10 @@ public class CoreData extends Main {
         long start5 = System.nanoTime();
         int result5 = BinarySearch(coreDataCopy5, numberToFind);
         if(result5 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result5);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result5);
         }
         long end5 = System.nanoTime();
         long timeTaken5 = end5 - start5;
@@ -347,7 +350,10 @@ public class CoreData extends Main {
         if (size == 1000000) {
             System.out.println("Average for Binary Search: " + (Average(timeTotal) / 1000000) + " milliseconds");
         }
-        System.out.println("Average for Binary Search: " + Average(timeTotal) + " nanoseconds");
+        else {
+            System.out.println("Average for Binary Search: " + Average(timeTotal) + " nanoseconds");
+        }
+
     }
 
     public static int LinearSearch(int[] coreData, int numberToFind){
@@ -370,24 +376,24 @@ public class CoreData extends Main {
         long start = System.nanoTime();
         int result = LinearSearch(coreDataCopy1, numberToFind);
         if(result == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result);
         }
         long end = System.nanoTime();
         long timeTaken = end - start;
-        System.out.println("1/5 - Binary Search = " + timeTaken + " " + "nanoseconds");
+        System.out.println("1/5 - Linear Search = " + timeTaken + " " + "nanoseconds");
         timeTotal.add(timeTaken);
 
         // Linear Search 2
         long start2 = System.nanoTime();
         int result2 = LinearSearch(coreDataCopy2, numberToFind);
         if(result2 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result2);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result2);
         }
         long end2 = System.nanoTime();
         long timeTaken2 = end2 - start2;
@@ -398,10 +404,10 @@ public class CoreData extends Main {
         long start3 = System.nanoTime();
         int result3 = LinearSearch(coreDataCopy3, numberToFind);
         if(result3 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result3);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result3);
         }
         long end3 = System.nanoTime();
         long timeTaken3 = end3 - start3;
@@ -412,10 +418,10 @@ public class CoreData extends Main {
         long start4 = System.nanoTime();
         int result4 = LinearSearch(coreDataCopy4, numberToFind);
         if(result4 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result4);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result4);
         }
         long end4 = System.nanoTime();
         long timeTaken4 = end4 - start4;
@@ -426,10 +432,10 @@ public class CoreData extends Main {
         long start5 = System.nanoTime();
         int result5 = LinearSearch(coreDataCopy5, numberToFind);
         if(result5 == -1){
-            System.out.println("Number to find: " + numberToFind + "has not been found");
+            System.out.println("Number to find: " + numberToFind + " has not been found");
         }
         else {
-            System.out.println("Number to find: " + numberToFind + "has been found at position " + result5);
+            System.out.println("Number to find: " + numberToFind + " has been found at position " + result5);
         }
         long end5 = System.nanoTime();
         long timeTaken5 = end5 - start5;
@@ -439,6 +445,8 @@ public class CoreData extends Main {
         if (size == 1000000) {
             System.out.println("Average for Linear Search: " + (Average(timeTotal) / 1000000) + " milliseconds");
         }
-        System.out.println("Average for Linear Search: " + Average(timeTotal) + " nanoseconds");
+        else {
+            System.out.println("Average for Linear Search: " + Average(timeTotal) + " nanoseconds");
+        }
     }
 }
